@@ -50,7 +50,8 @@ body{
 .container-calculator__input{
     display: flex;
     flex-direction: column;
-    height: 60%;
+    max-height: 60%;
+    justify-content: space-between;
 }
 
 .bill, .people, .tip{ 
@@ -61,8 +62,8 @@ body{
     
 }
 
-.bil, .people{
-    height: 40%;
+.bill, .people{
+    height: 23%;
 }
 
 .bill-input{
@@ -74,8 +75,17 @@ body{
 }
 
 .tip{
-    max-height: 50%;
+    height: 60%;
+
     overflow: hidden;
+}
+
+.tip-buttons{
+    height: 90%;
+    display: grid;
+    row-gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .tip-buttons > div{
@@ -84,11 +94,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    background-color: $green-dark;
 }
 
 
-.tip-buttons{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-}
