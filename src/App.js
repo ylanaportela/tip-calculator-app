@@ -4,6 +4,8 @@ import { useState } from 'react';
 import './App.scss'
 function App() {
 
+  const [inputBill, setInputBill] = useState(0)
+
   const tips = [5, 10, 15, 25, 50, 'Custom']
 
   return (
@@ -16,9 +18,9 @@ function App() {
       <div className="container-calculator">
 
         <div className="container-calculator__input">
-          <div className="bill">
+          <div className="calculator-input__bill">
             <p>Bill</p>
-            <input className="bill-input" />
+            <input className="input" value={inputBill}/>
           </div>
 
           <div className="tip">
@@ -26,15 +28,15 @@ function App() {
             <div className="tip-buttons">
               {tips.map(tip => {
                 return (
-                  <div key={tip}>{tip}</div>
+                  <div key={tip} placeholder>{tip}</div>
             )
               })}
           </div>
         </div>
 
-        <div className="people">
+        <div className="calculator-input__people">
           <p>Number of People</p>
-          <input className="bill-input" />
+          <input className="input" />
         </div>
 
       </div>

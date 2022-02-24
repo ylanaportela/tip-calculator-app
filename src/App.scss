@@ -11,13 +11,15 @@ $font-stack: 'Nunito Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     font-family: $font-stack;
     background-color: #C5E4E7;
+    overflow: hidden;
 }
 
 .container{
@@ -30,7 +32,7 @@ body{
 }
 
 .container-title{
-    height: 20%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,11 +40,11 @@ body{
 
 .container-calculator{
     width: 100%;
-    height: 90%;
+    height: 82%;
     padding: 8%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 25px 25px 0px 0px;
     background-color: #fff;
 }
@@ -50,11 +52,11 @@ body{
 .container-calculator__input{
     display: flex;
     flex-direction: column;
-    max-height: 60%;
+    height: 63%;
     justify-content: space-between;
 }
 
-.bill, .people, .tip{ 
+.calculator-input__bill, .calculator-input__people, .tip{ 
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
@@ -62,17 +64,33 @@ body{
     
 }
 
-.bill, .people{
-    height: 23%;
+.calculator-input__bill, .calculator-input__people{
+    height: 20%;
 }
 
-.bill-input{
+.input{
     width: 100%;
-    height: 45%;
+    height: 55%;
     border: 0px;
     border-radius: 5px;
-    background-color: #F3F9FA;
+    background: #F3F9FA url(./images/icon-dollar.svg) 12px no-repeat;
 }
+
+.calculator-input__people .input{
+    background: #F3F9FA url(./images/icon-person.svg) 12px no-repeat
+}
+
+.input[value]{
+    padding: 15px;
+    color: $green-dark;
+    text-align: right;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+
+
 
 .tip{
     height: 60%;
@@ -85,8 +103,11 @@ body{
     display: grid;
     row-gap: 12px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
+
+
+
 
 .tip-buttons > div{
     width: 146px;
@@ -103,3 +124,6 @@ body{
 }
 
 
+.container-calculator__output{
+    height: 35%;
+}
