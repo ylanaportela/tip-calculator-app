@@ -1,5 +1,5 @@
 $cyan-light: #9EBBBD;
-$cyan-light: #5E7A7D;
+$cyan-dark: #5E7A7D;
 $green-light: #26C2AE;
 $green-dark: #00474B;
 $gray-light: #7F9D9F;
@@ -82,7 +82,7 @@ body{
 
 .input[value]{
     padding: 15px;
-    color: $green-dark;
+    color: $cyan-light;
     text-align: right;
     font-weight: bold;
     font-size: 24px;
@@ -106,9 +106,6 @@ body{
     grid-template-rows: repeat(3, 1fr);
 }
 
-
-
-
 .tip-buttons > div{
     width: 146px;
     height: 48px;
@@ -121,6 +118,11 @@ body{
     font-size: 24px;
     line-height: 36px;
     background-color: $green-dark;
+}
+
+.tip-buttons div:last-child{
+    background-color: #F3F9FA;
+    color: #547878;
 }
 
 
