@@ -1,12 +1,24 @@
 import logo from './images/logo.svg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './App.scss'
 function App() {
 
   const [inputBill, setInputBill] = useState('')
   const [inputPeople, setInputPeople] = useState('')
-  const [buttonActive, setButtonActive] = useState(null)
+  const [buttonActive, setButtonActive] = useState('')
+
+  const [tipValue, setTipValue] = useState(0)
+  const [totalValue, setTotalValue] = useState(0)
+
+
+  useEffect(() => {
+    setTipValue(inputBill  * (buttonActive/100))
+  }, [inputBill, buttonActive ])
+
+  useEffect(() => {
+    (setTotalValue((inputBill  * (buttonActive/100) / inputPeople) + inputBill/inputPeople))
+  }, [inputBill, buttonActive , inputPeople])
 
 
   const tips = [5, 10, 15, 25, 50, 'Custom']
@@ -61,20 +73,20 @@ function App() {
 
             <div className='text'>
               <div className='text-title'>Tip Amount</div>
-              <p className='text-description'> /person</p>
+              <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'><span></span></div>
+            <div className='value'><span>$</span> {tipValue}</div>
           </div>
 
           <div className='output-values__total'>
 
             <div className='text'>
               <div className='text-title'>Total</div>
-              <p className='text-description'> /person</p>
+              <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'><span>$</span></div>
+            <div className='value'><span>$</span> {totalValue}</div>
           </div>
 
         </div>
