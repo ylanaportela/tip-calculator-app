@@ -4,9 +4,16 @@ import { useState } from 'react';
 import './App.scss'
 function App() {
 
-  const [inputBill, setInputBill] = useState(0)
+  const [inputBill, setInputBill] = useState('')
+  const [inputPeople, setInputPeople] = useState('')
+  const [buttonActive, setButtonActive] = useState(null)
+
 
   const tips = [5, 10, 15, 25, 50, 'Custom']
+
+  function handleClick(tip) {
+    setButtonActive(tip)
+    }
 
   return (
     <div className="container">
@@ -20,7 +27,7 @@ function App() {
         <div className="container-calculator__input">
           <div className="calculator-input__bill">
             <p>Bill</p>
-            <input className="input" value={inputBill}/>
+            <input className="input" type="number"  placeholder='0' value={inputBill} onChange={e => setInputBill(e.target.value)}/>
           </div>
 
           <div className="tip">
@@ -28,15 +35,21 @@ function App() {
             <div className="tip-buttons">
               {tips.map(tip => {
                 return (
-                  <div key={tip} placeholder>{tip}</div>
-            )
+                  <div
+                  key={tip}
+                  onClick={() => handleClick(tip)}
+                  className={buttonActive === tip ? 'button button-active' : null}
+                  >
+                    {tip}{typeof(tip) === 'number' ? '%' : null}
+                  </div>
+              )
               })}
           </div>
         </div>
 
         <div className="calculator-input__people">
           <p>Number of People</p>
-          <input className="input" />
+          <input className="input" type="number" placeholder='0' value={inputPeople} onChange={e => setInputPeople(e.target.value)}/>
         </div>
 
       </div>
@@ -64,8 +77,9 @@ function App() {
             <div className='value'><span>$</span></div>
           </div>
 
-          <button>RESET</button>
         </div>
+
+        <button>RESET</button>
 
       </div>
     </div>
