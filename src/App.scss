@@ -60,8 +60,6 @@ body{
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    color: $cyan-light;
-    
 }
 
 .calculator-input__bill, .calculator-input__people{
@@ -74,13 +72,14 @@ body{
     border: 0px;
     border-radius: 5px;
     background: #F3F9FA url(./images/icon-dollar.svg) 12px no-repeat;
+    color: $cyan-light;
 }
 
 .calculator-input__people .input{
     background: #F3F9FA url(./images/icon-person.svg) 12px no-repeat
 }
 
-.input[value]{
+.input[value], input::placeholder{
     padding: 15px;
     color: $cyan-light;
     text-align: right;
@@ -89,6 +88,9 @@ body{
     line-height: 36px;
 }
 
+.input[value]{
+    color: $green-dark;
+}
 
 
 
@@ -120,12 +122,32 @@ body{
     background-color: $green-dark;
 }
 
-.tip-buttons div:last-child{
+.tip-buttons > div div:last-child{
     background-color: #F3F9FA;
     color: #547878;
+}
+
+.button.button-active{
+    color: $green-dark;
+    background-color: #26C2AE;
 }
 
 
 .container-calculator__output{
     height: 35%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    color: #fff;
+    background-color: $green-dark;
+}
+
+.output-values{
+    height: 65%;
+}
+
+button{
+    height: 30%;
 }
