@@ -4,20 +4,24 @@ import { useEffect, useState } from 'react';
 import './App.scss'
 function App() {
 
-  const [inputBill, setInputBill] = useState('')
-  const [inputPeople, setInputPeople] = useState('')
-  const [buttonActive, setButtonActive] = useState('')
+  const [inputBill, setInputBill] = useState(0)
+  const [inputPeople, setInputPeople] = useState(0)
+  const [buttonActive, setButtonActive] = useState(0)
 
   const [tipValue, setTipValue] = useState(0)
   const [totalValue, setTotalValue] = useState(0)
 
 
   useEffect(() => {
-    setTipValue(inputBill  * (buttonActive/100))
-  }, [inputBill, buttonActive ])
+    if (inputBill > 0 && inputBill !== []) {
+    setTipValue(Number(inputBill)  * Number(buttonActive/100))}
+  }, [inputBill, buttonActive])
 
+  
   useEffect(() => {
-    (setTotalValue((inputBill  * (buttonActive/100) / inputPeople) + inputBill/inputPeople))
+    if (inputBill > 0 && inputBill !== [] && inputPeople > 0 && inputPeople !== []  ) {
+      (setTotalValue((Number(inputBill)  * (Number(buttonActive)/100) / Number(inputPeople)) + Number(inputBill)/Number(inputPeople)))
+    }
   }, [inputBill, buttonActive , inputPeople])
 
 
@@ -37,16 +41,34 @@ function App() {
       <div className="container-calculator">
 
         <div className="container-calculator__input">
+
           <div className="calculator-input__bill">
+
             <p>Bill</p>
-            <input className="input" type="number"  placeholder='0' value={inputBill} onChange={e => setInputBill(e.target.value)}/>
+
+            <input 
+            type='number'
+            className={inputBill === 0 ? 'input-value input-value__default' : 'input-value input-value__active' }
+            placeholder='0'
+
+            value={inputBill}
+
+            onFocus = {() => setInputBill([])}
+            onChange={e => setInputBill(e.target.value)}            
+            />
+
+
           </div>
 
           <div className="tip">
+
             <p>Select tip %</p>
+
             <div className="tip-buttons">
+
               {tips.map(tip => {
                 return (
+
                   <div
                   key={tip}
                   onClick={() => handleClick(tip)}
@@ -61,7 +83,13 @@ function App() {
 
         <div className="calculator-input__people">
           <p>Number of People</p>
-          <input className="input" type="number" placeholder='0' value={inputPeople} onChange={e => setInputPeople(e.target.value)}/>
+          <input
+          type='number'
+          className={inputPeople === 0 ? 'input-value input-value__default' : 'input-value input-value__active' }
+          placeholder='0'
+          value={inputPeople}
+          onFocus = {() => setInputPeople([])}
+          onChange={e => setInputPeople(e.target.value)}/>
         </div>
 
       </div>
@@ -76,7 +104,7 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'><span>$</span> {tipValue}</div>
+            <div className='value'> <span>$</span> {tipValue} </div>
           </div>
 
           <div className='output-values__total'>
@@ -86,7 +114,7 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'><span>$</span> {totalValue}</div>
+            <div className='value'> <span>$</span> {totalValue} </div>
           </div>
 
         </div>
