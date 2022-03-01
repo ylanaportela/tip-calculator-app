@@ -7,6 +7,12 @@ $gray-dark: #547878;
 $orange: #E17457;
 $font-stack: 'Nunito Sans', sans-serif;
 
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-4k: 2560px;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -49,6 +55,12 @@ body{
     background-color: #fff;
 }
 
+.container-calculator__input p{
+    font-size: 16px;
+    list-style: 24px;
+    color: $cyan-dark;
+}
+
 .container-calculator__input{
     display: flex;
     flex-direction: column;
@@ -66,37 +78,37 @@ body{
     height: 20%;
 }
 
-.input{
+input{
     width: 100%;
     height: 55%;
     border: 0px;
     border-radius: 5px;
     background: #F3F9FA url(./images/icon-dollar.svg) 12px no-repeat;
-    color: $cyan-light;
 }
 
 .calculator-input__people .input{
     background: #F3F9FA url(./images/icon-person.svg) 12px no-repeat
 }
 
-.input[value], input::placeholder{
+.input-value{
     padding: 15px;
-    color: $cyan-light;
     text-align: right;
     font-weight: bold;
     font-size: 24px;
     line-height: 36px;
 }
 
-.input[value]{
-    color: $green-dark;
+.input-value__default{
+    color: $cyan-light;
 }
 
+.input-value__active{
+    color: $green-dark;
 
+}
 
 .tip{
     height: 60%;
-
     overflow: hidden;
 }
 
@@ -109,8 +121,8 @@ body{
 }
 
 .tip-buttons > div{
-    width: 146px;
-    height: 48px;
+    width: 95%;
+    height: 85%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,4 +211,36 @@ button{
     color: $green-dark;
     border-radius: 10px;
     background-color: $green-light;
+}
+
+
+@media (min-width: $breakpoint-tablet){
+
+    .container{
+        justify-content: start;
+    }
+
+    .container-calculator{
+        width: 50%;
+        height: 79%;
+        padding: 5%;
+        border-radius: 25px;
+    }
+}
+
+
+@media (min-width: $breakpoint-laptop){
+    .container-calculator{
+        width: 80%;
+        height: 70%;
+        flex-direction: row;
+        padding: 4%;
+    }
+
+    .container-calculator__input, .container-calculator__output{
+        height: 100%;
+        width: 45%;
+    }
+
+    
 }
