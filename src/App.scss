@@ -86,8 +86,8 @@ input{
     background: #F3F9FA url(./images/icon-dollar.svg) 12px no-repeat;
 }
 
-.calculator-input__people .input{
-    background: #F3F9FA url(./images/icon-person.svg) 12px no-repeat
+.calculator-input__people input{
+    background: #F3F9FA url(./images/icon-person.svg) 12px no-repeat;
 }
 
 .input-value{
@@ -189,28 +189,23 @@ input{
         color: $gray-light;
     }
     
-    .value{
+    .value-tip, .value-total{
         width: 50%;
         height: 100%;
         align-self: center;
-        font-size: 35px;
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+        font-size: 32px;
         font-weight: bold;
         line-height: 47px;
         color: $green-light;
-        display: flex;
-        align-items: center;
-        justify-content: end;
+        vertical-align: super;
     }
 
-    .value svg{
-        width: 30%;
-        height: 100%;
-    }
+    .value-icon{
+        height: 85%;
 
-    .value svg path{
-        width: 100%;
-        height: 100%;
-        background-color: red;
     }
 }
 

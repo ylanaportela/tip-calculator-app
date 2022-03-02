@@ -106,7 +106,7 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'> <IconX />{tipValue} </div>
+            <div className='value-tip'> <IconX className='value-icon'/> <div className='value'>{tipValue} </div> </div>
           </div>
 
           <div className='output-values__total'>
@@ -116,7 +116,7 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'> <IconX /> {totalValue} </div>
+            <div className='value-total'> <IconX className='value-icon'/> <div className='value'> {totalValue} </div> </div>
           </div>
 
         </div> 
