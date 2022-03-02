@@ -190,15 +190,27 @@ input{
     }
     
     .value{
+        width: 50%;
+        height: 100%;
         align-self: center;
-        font-size: 26px;
+        font-size: 35px;
         font-weight: bold;
         line-height: 47px;
         color: $green-light;
+        display: flex;
+        align-items: center;
+        justify-content: end;
     }
 
-    .value span{
-        font-size: 20px;
+    .value svg{
+        width: 30%;
+        height: 100%;
+    }
+
+    .value svg path{
+        width: 100%;
+        height: 100%;
+        background-color: red;
     }
 }
 
@@ -238,9 +250,36 @@ button{
     }
 
     .container-calculator__input, .container-calculator__output{
+        width: 48%;
         height: 100%;
-        width: 45%;
     }
 
+    .tip{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .tip-buttons{
+        height: 45%;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 12px;
+    }
+
+    .tip-buttons > div{
+        width: 100%;
+        height: 100%;
+    }
+
+    .output-values__tip .value, .output-values__total .value{
+        align-self: start;
+        font-size: 48px;
+    }
+
+    .output-values__tip .value span, .output-values__total .value span{
+        font-size: 30px;
+    }
     
 }
