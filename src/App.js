@@ -1,7 +1,9 @@
 import logo from './images/logo.svg'
 import { useEffect, useState } from 'react';
+import IconDollar from './images/icon-dollar.svg'
 
 import './App.scss'
+import IconX from './components/IconX';
 function App() {
 
   const [inputBill, setInputBill] = useState(0)
@@ -104,7 +106,7 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'> <span>$</span> {tipValue} </div>
+            <div className='value'> <IconX />{tipValue} </div>
           </div>
 
           <div className='output-values__total'>
@@ -114,10 +116,10 @@ function App() {
               <p className='text-description'>/ person</p>
             </div>
 
-            <div className='value'> <span>$</span> {totalValue} </div>
+            <div className='value'> <IconX /> {totalValue} </div>
           </div>
 
-        </div>
+        </div> 
 
         <button>RESET</button>
 
