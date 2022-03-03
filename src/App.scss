@@ -1,10 +1,12 @@
 $cyan-light: #9EBBBD;
 $cyan-dark: #5E7A7D;
 $green-light: #26C2AE;
+$green-light-hover: #9FE8DF;
 $green-dark: #00474B;
 $gray-light: #7F9D9F;
 $gray-dark: #547878;
-$orange: #E17457;
+$orange-error: #E17457;
+
 $font-stack: 'Nunito Sans', sans-serif;
 
 $breakpoint-tablet: 768px;
@@ -55,17 +57,18 @@ body{
     background-color: #fff;
 }
 
-.container-calculator__input p{
-    font-size: 16px;
-    list-style: 24px;
-    color: $cyan-dark;
-}
-
 .container-calculator__input{
     display: flex;
     flex-direction: column;
     height: 63%;
     justify-content: space-between;
+}
+
+.container-calculator__input p{
+    font-size: 16px;
+    list-style: 24px;
+    color: $cyan-dark;
+    text-indent: 6px;
 }
 
 .calculator-input__bill, .calculator-input__people, .tip{ 
@@ -75,15 +78,38 @@ body{
 }
 
 .calculator-input__bill, .calculator-input__people{
-    height: 20%;
+    display: flex;
+    flex-direction: column;
 }
 
-input{
-    width: 100%;
+.input{
+    width: 98%;
     height: 55%;
     border: 0px;
     border-radius: 5px;
     background: #F3F9FA url(./images/icon-dollar.svg) 12px no-repeat;
+    margin: 0 auto;
+    caret-color: $green-light;
+}
+
+.input:focus{
+    cursor: pointer;
+    outline: 2px solid $green-light-hover;
+}
+
+.input:last-child:focus{
+    cursor: pointer;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .calculator-input__people input{
@@ -98,24 +124,28 @@ input{
     line-height: 36px;
 }
 
+.input-error{
+    border: 2px solid $orange-error;
+}
+
 .input-value__default{
     color: $cyan-light;
 }
 
 .input-value__active{
     color: $green-dark;
-
+    border: none;
 }
 
 .tip{
-    height: 60%;
+    height: 58%;
     overflow: hidden;
 }
 
 .tip-buttons{
     height: 90%;
     display: grid;
-    row-gap: 12px;
+    row-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
@@ -134,7 +164,7 @@ input{
     background-color: $green-dark;
 }
 
-.tip-buttons > div div:last-child{
+.tip-buttons div:last-child{
     background-color: #F3F9FA;
     color: #547878;
 }
@@ -144,6 +174,37 @@ input{
     background-color: #26C2AE;
 }
 
+.input-costum{
+    height: 100%;
+    padding: 15px;
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 36px;
+    color: $green-dark;
+    border: 2px solid $green-light;
+    caret-color: $green-light;
+}
+
+.input-costum:focus-visible{
+    outline: 1px solid $green-light;
+}
+
+.calculator-input__people{
+    height: 22%;
+}
+
+.text-error-default{
+    display: none;
+}
+
+.text-error{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 2%;
+    color: $orange-error;
+}
 
 .container-calculator__output{
     height: 35%;
@@ -205,7 +266,7 @@ input{
 
     .value-icon{
         height: 85%;
-
+        min-width: 10%;
     }
 }
 
@@ -219,7 +280,6 @@ button{
     border-radius: 10px;
     background-color: $green-light;
 }
-
 
 @media (min-width: $breakpoint-tablet){
 
@@ -235,8 +295,8 @@ button{
     }
 }
 
-
 @media (min-width: $breakpoint-laptop){
+
     .container-calculator{
         width: 80%;
         height: 70%;
@@ -263,18 +323,31 @@ button{
         column-gap: 12px;
     }
 
-    .tip-buttons > div{
-        width: 100%;
-        height: 100%;
-    }
-
-    .output-values__tip .value, .output-values__total .value{
-        align-self: start;
-        font-size: 48px;
-    }
-
-    .output-values__tip .value span, .output-values__total .value span{
-        font-size: 30px;
+    .tip-buttons > div:hover{
+        cursor: pointer;
+        color: $green-dark;
+        background-color: $green-light-hover;
     }
     
+    .output-values__tip, .output-values__total{
+        .value{
+            align-self: start;
+            font-size: 48px;
+        }
+        .value-icon{
+            height: 60%;
+            min-width: 5%;
+            align-self: baseline;
+        }
+
+        .text-title{
+            font-size: 16px;
+        }
+    }
+}
+
+@media (min-width: $breakpoint-desktop){
+    .output-values__tip .value-icon, .output-values__total .value-icon {
+        height: 75%;
+    }
 }
