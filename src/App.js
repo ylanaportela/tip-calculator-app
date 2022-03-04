@@ -12,6 +12,7 @@ function App() {
 
   const [tipValue, setTipValue] = useState(0)
   const [totalValue, setTotalValue] = useState(0)
+  const [reset, setReset] = useState(false) 
 
 
   useEffect(() => {
@@ -39,6 +40,11 @@ function App() {
     setButtonActive(tip)
 
   }
+
+  function handleClickReset(){
+    setReset(setInputBill(0), setButtonActive(0), setInputPeople(0), setTipValue(0), setTotalValue(0))
+  }
+
 
   return (
     <div className="container">
@@ -147,15 +153,18 @@ function App() {
               </div>
 
               <div
-              className='value-total'>
-              <IconX className='value-icon' />
+                className='value-total'>
+                <IconX className='value-icon' />
 
-              <div className='value'> {totalValue} </div> </div>
+                <div className='value'> {totalValue} </div> </div>
             </div>
 
           </div>
 
           <button
+            className={
+              inputBill === 0 ? 'button-disabled' : 'button-active'
+            } onClick={handleClickReset}
           >RESET</button>
 
         </div>
