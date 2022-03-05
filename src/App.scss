@@ -370,6 +370,11 @@ button{
 
 @media (min-width: $breakpoint-desktop){
     .output-values__tip .value-icon, .output-values__total .value-icon {
-        height: 75%;
+        height: 78%;
     }
+
+    .text-title{
+        font-size: 18px;
+    }
+
 }
