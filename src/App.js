@@ -166,11 +166,13 @@ function App() {
             </div>
 
           </div>
-          
+
           <button
+          value={reset}
             className={
               inputBill === 0 ? 'button-disabled' : 'button-active'
-            } onClick={handleClickReset}
+            }
+            onClick={handleClickReset}
           >RESET</button>
 
         </div>
