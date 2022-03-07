@@ -16,15 +16,19 @@ function App() {
 
 
   useEffect(() => {
-    if (inputBill > 0 && inputBill !== []) {
-      setTipValue(Number(inputBill) * Number(buttonActive / 100))
+    if (inputBill > 0 && inputBill !== [] && typeof(buttonActive) == 'number') {
+      let tip  = (inputBill) * (buttonActive / 100)
+
+      setTipValue(tip)
     }
   }, [inputBill, buttonActive])
 
 
   useEffect(() => {
-    if (inputBill > 0 && inputBill !== [] && inputPeople > 0 && inputPeople !== []) {
-      (setTotalValue((Number(inputBill) * (Number(buttonActive) / 100) / Number(inputPeople)) + Number(inputBill) / Number(inputPeople)))
+    if (inputBill > 0 && inputBill !== [] && inputPeople > 0 && inputPeople !== [] ) {
+      let total = (inputBill) * ((buttonActive) / 100) / (inputPeople) + (inputBill) / (inputPeople)
+
+      setTotalValue(total)
     }
   }, [inputBill, buttonActive, inputPeople])
 
@@ -33,15 +37,17 @@ function App() {
 
   function handleClick(tip) {
 
-    if (tip === buttonCustom) {
-      setButtonCustom(<input className='input-costum' type='number' onChange={e => setButtonActive(Number(e.target.value))} />)
+    if (tip === buttonCustom) { 
+      setButtonCustom(
+      <input className='input-costum' type='number' onChange={e => setButtonActive(Number(e.target.value))}/>
+      )
     }
-
+   
     setButtonActive(tip)
-
   }
 
   function handleClickReset(){
+
     setReset(setInputBill(0), setButtonActive(0), setInputPeople(0), setTipValue(0), setTotalValue(0))
   }
 
@@ -108,7 +114,7 @@ function App() {
 
             <input
               type='number'
-              className={inputPeople === 0 ? 'input input-value input-value__default' : 'input input-value input-value__active' && totalValue === 0 ? 'input input-value input-error' : 'input input-value input-value__active'}
+              className={tipValue !== 0 && totalValue === 0 ? 'input input-value input-error' : 'input input-value input-value__default' && inputPeople !== 0 ? 'input input-value input-value__active' : 'input input-value input-value__default'} 
               placeholder='0'
               value={inputPeople}
               onFocus={() => setInputPeople([])}
@@ -137,7 +143,7 @@ function App() {
 
                 <IconX className='value-icon' />
 
-                <div className='value'>{tipValue}</div>
+                <div className='value'>{tipValue.toFixed(2)}</div>
 
               </div>
 
@@ -156,11 +162,11 @@ function App() {
                 className='value-total'>
                 <IconX className='value-icon' />
 
-                <div className='value'> {totalValue} </div> </div>
+                <div className='value'> {totalValue.toFixed(2)} </div> </div>
             </div>
 
           </div>
-
+          
           <button
             className={
               inputBill === 0 ? 'button-disabled' : 'button-active'
