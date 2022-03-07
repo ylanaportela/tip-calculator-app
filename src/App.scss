@@ -12,7 +12,6 @@ $font-stack: 'Nunito Sans', sans-serif;
 $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1440px;
-$breakpoint-4k: 2560px;
 
 
 *{
@@ -95,7 +94,7 @@ body{
 
 .input:focus{
     cursor: pointer;
-    outline: 2px solid $green-light-hover;
+    border: 2px solid $green-light-hover;
 }
 
 .input:last-child:focus{
@@ -126,12 +125,15 @@ input[type="number"] {
 }
 
 .input-error{
+    color: $cyan-light;
     border: 2px solid $orange-error;
 }
 
 .input-value__default{
     color: $cyan-light;
 }
+
+
 
 .input-value__active{
     color: $green-dark;
