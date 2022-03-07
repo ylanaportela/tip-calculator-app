@@ -258,7 +258,7 @@ input[type="number"] {
         height: 100%;
         align-self: center;
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         align-items: flex-end;
         font-size: 32px;
         font-weight: bold;
@@ -297,7 +297,7 @@ button{
 @media (min-width: $breakpoint-tablet){
 
     .container{
-        justify-content: start;
+        justify-content: flex-start;
     }
 
     .container-calculator{
@@ -344,7 +344,7 @@ button{
     
     .output-values__tip, .output-values__total{
         .value{
-            align-self: start;
+            align-self: flex-start;
             font-size: 48px;
         }
         .value-icon{
