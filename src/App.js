@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     if (inputBill > 0 && inputBill !== [] && inputPeople > 0 && inputPeople !== [] ) {
-      let total = (inputBill) * ((buttonActive) / 100) / (inputPeople) + (inputBill) / (inputPeople)
+      let total = (inputBill) * ((buttonActive) / 100) + (inputBill) / (inputPeople)
 
       setTotalValue(total)
     }
