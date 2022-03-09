@@ -48,7 +48,7 @@ function App() {
 
   function handleClickReset(){
 
-    setReset(setInputBill(0), setButtonActive(0), setInputPeople(0), setTipValue(0), setTotalValue(0))
+    setReset(setInputBill(0), setButtonActive(0), setButtonCustom('Costum') ,setInputPeople(0), setTipValue(0), setTotalValue(0))
   }
 
 
