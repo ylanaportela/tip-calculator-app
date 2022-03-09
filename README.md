@@ -70,22 +70,12 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
             font-size: 16px;
         }
     }
-
 }
 ```
 ```js
 const proudOfThisFunc = () => {
   
-  useEffect(() => {
-    if (inputBill > 0 && inputBill !== [] && inputPeople > 0 && inputPeople !== [] ) {
-      let total = (inputBill) * ((buttonActive) / 100) / (inputPeople) + (inputBill) / (inputPeople)
-
-      setTotalValue(total)
-    }
-  }, [inputBill, buttonActive, inputPeople])
-
-
-  const tips = [5, 10, 15, 25, 50, buttonCustom]
+   const tips = [5, 10, 15, 25, 50, buttonCustom]
 
   function handleClick(tip) {
 
@@ -97,7 +87,6 @@ const proudOfThisFunc = () => {
    
     setButtonActive(tip)
   }
-}
 ```
 
 
